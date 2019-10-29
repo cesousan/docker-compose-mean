@@ -1,0 +1,19 @@
+version: '3'
+services:
+  server:
+    build: ./server
+    command: bash -c "npm install && npm run build-ts && npm run dev"
+    env_file: server.env
+    ports:
+      - '7000:4200'
+    working_dir: /root/server
+    volumes:
+      - ./server:/root/server:cached
+  client:
+    build: ./client
+    command: bash -c "npm install && ng serve --host 0.0.0.0 --port 3000"
+    ports:
+      - '3000:3000'
+    working_dir: /root/client
+    volumes:
+      - ./client:/root/client:cached

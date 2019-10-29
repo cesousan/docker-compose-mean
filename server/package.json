@@ -1,0 +1,32 @@
+{
+  "name": "be_express",
+  "version": "1.0.0",
+  "author": "cesousan",
+  "license": "MIT",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "jest",
+    "build-ts": "tsc",
+    "start": "yarn serve",
+    "dev": "concurrently --kill-others yarn:watch-*",
+    "serve": "node dist/server.js",
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/server.js"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/jest": "^24.0.20",
+    "concurrently": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "prettier": "1.18.2",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
