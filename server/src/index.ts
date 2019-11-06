@@ -16,7 +16,7 @@ const options: cors.CorsOptions = {
 
 app.use(cors(options));
 
-const message = 'Hello, World!';
+const message = 'Hello, you Dingo!';
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
   res.json({ message });

@@ -17,3 +17,10 @@ services:
     working_dir: /root/client
     volumes:
       - ./client:/root/client:cached
+  users_db:
+    build: ./db/users
+    ports:
+      - '27017-27019:27017-27019'
+    volumes:
+      - ./db/users/init-users-db.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - .db/users/users_db:/data/db
