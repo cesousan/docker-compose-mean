@@ -1,8 +1,10 @@
-import express, { NextFunction, Request, Response } from 'express';
-
 import cors from 'cors';
+import express, { NextFunction, Request, Response } from 'express';
+import { connectToUsersDB } from './db';
 
 export const app = express();
+
+connectToUsersDB();
 
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN;
 
