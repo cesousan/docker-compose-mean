@@ -3,7 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=node,angular,visualstudiocode
 
 db/**/*.js
-
+db/users/users_db/
 ### Angular ###
 ## Angular ##
 # compiled output
@@ -102,3 +102,6 @@ jspm_packages/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+
+.prettierrc.json

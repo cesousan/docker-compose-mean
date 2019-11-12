@@ -1,4 +1,4 @@
-import { connect } from 'mongoose';
+import { connect, model, Schema } from 'mongoose';
 
 const USERS_DB = `${process.env.USERS_DB_ADDR}/${process.env.USERS_DB_NAME}`;
 export async function connectToUsersDB() {
@@ -12,3 +12,17 @@ export async function connectToUsersDB() {
     console.log(err);
   }
 }
+
+// DB schema
+const ItemSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+export const Item = model('item', ItemSchema);

@@ -1,1 +1,24 @@
-<h1>{{ content$ | async }}</h1>
+<ng-container *ngIf="data$ | async as data">
+  <div class="container">
+    <h1 class="threed">{{ data.content }}</h1>
+
+    <div class="buttons-container">
+      <button mat-fab (click)="createItem()" color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <ng-container *ngIf="data.items">
+      <div @list class="list-container">
+        <ng-container *ngFor="let item of data.items; trackBy: trackById">
+          <div @items class="box">
+            <div class="inner-text">{{ item.name }}</div>
+            <button mat-icon-button (click)="delete(item._id)" color="primary">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

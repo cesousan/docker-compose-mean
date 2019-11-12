@@ -5,7 +5,7 @@ services:
     command: bash -c "npm install && npm run build-ts && npm run dev"
     env_file: server.env
     ports:
-      - '7000:4200'
+      - '4200:4200'
     working_dir: /root/server
     volumes:
       - ./server:/root/server:cached
