@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
-import { connectToUsersDB, Item } from './db';
+import { connectToUsersDB, Item } from './core/db/db';
 import { wsServer } from './server';
 
 export const app = express();
