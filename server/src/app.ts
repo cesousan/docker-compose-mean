@@ -1,20 +1,20 @@
-import config from './core/config';
-
+import { createServer } from 'http';
 import express from 'express';
 
+import config from './core/config';
 import loaders from './core/loaders';
+import ws from './core/ws';
 
 async function startServer() {
   const app = express();
 
   await loaders({ expressApp: app });
 
-  app.listen(config.port, err => {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-      return;
-    }
+  const http = createServer(app);
+
+  ws(http);
+
+  http.listen(config.port, () => {
     console.info(`
       ################################################
       🛡️  Server listening on port: ${config.port} 🛡️

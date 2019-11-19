@@ -1,5 +1,8 @@
 import { connectToUsersDB } from './mongoose';
+import expressLoader from './express';
 
 export default async ({ expressApp }: any) => {
-  const mongooseUserConnection = await connectToUsersDB();
+  await connectToUsersDB();
+
+  await expressLoader({ app: expressApp });
 };

@@ -9,7 +9,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AppService {
-  private API_URL = 'http://0.0.0.0:4200';
+  private API_URL = 'http://localhost:4200/item';
   constructor(private http: HttpClient, private socket: Socket) {}
 
   getContent(): Observable<string> {
@@ -21,23 +21,23 @@ export class AppService {
 
   getItems(): Observable<{ name: string; date: Date | string }> {
     return this.http
-      .get<{ name: string; date: Date | string }>(`${this.API_URL}/items`)
+      .get<{ name: string; date: Date | string }>(`${this.API_URL}/all`)
       .pipe(filter(x => !!x));
   }
 
   createItem(name: string) {
-    return this.http.post(`${this.API_URL}/item`, { name });
+    return this.http.post(`${this.API_URL}`, { name });
   }
 
   deleteItem(id: string) {
     const params = new HttpParams().set('id', id);
-    return this.http.delete(`${this.API_URL}/item`, { params });
+    return this.http.delete(`${this.API_URL}`, { params });
   }
 
   getItemsChanged() {
     return merge(
-      this.socket.fromEvent<any>('item-added'),
-      this.socket.fromEvent<any>('item-removed')
+      this.socket.fromEvent<any>('onItemAdded'),
+      this.socket.fromEvent<any>('onItemRemoved')
     );
   }
 }
