@@ -1,4 +1,4 @@
-import wss from '../core/ws/ws-server';
+import wss from '../../core/ws/ws-server';
 
 const itemsEvents = {
   added: 'onItemAdded',

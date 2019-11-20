@@ -1,4 +1,4 @@
-import { itemEvents } from '../../item';
+import { itemEvents } from '../../features/item';
 import { merge, fromEvent } from 'rxjs';
 
 const registeredEvents = {

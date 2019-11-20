@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import item from '../../item/item.route';
+import item from '../../features/item/item.route';
 
 export default () => {
   const app = Router();
