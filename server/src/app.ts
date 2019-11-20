@@ -3,7 +3,7 @@ import express from 'express';
 
 import config from './core/config';
 import loaders from './core/loaders';
-import ws from './core/ws';
+import initWebSocketConnections from './core/ws';
 
 async function startServer() {
   const app = express();
@@ -12,7 +12,7 @@ async function startServer() {
 
   const http = createServer(app);
 
-  ws(http);
+  initWebSocketConnections(http);
 
   http.listen(config.port, () => {
     console.info(`
