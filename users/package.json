@@ -1,7 +1,7 @@
 {
   "name": "users-server",
   "version": "1.0.0",
-  "description": "a nodejs server that manages user operations",
+  "description": "a nodejs server that manages user operations -- fully based on santiq/bulletproof-nodejs project setup",
   "main": "src/app.js",
   "directories": {
     "test": "tests"
